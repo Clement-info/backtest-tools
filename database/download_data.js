@@ -1,9 +1,9 @@
 const ccxt = require('ccxt');
 const fs = require('fs')
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
-const exchange_limit = JSON.parse(fs.readFileSync('./database/exchange_limit.json', 'utf8'));
-const tf_ms = JSON.parse(fs.readFileSync('./database/tf_ms.json', 'utf8'));
-const coin_list = JSON.parse(fs.readFileSync('./database/coin_list.json', 'utf8'));
+const exchange_limit = JSON.parse(fs.readFileSync('./exchange_limit.json', 'utf8'));
+const tf_ms = JSON.parse(fs.readFileSync('./tf_ms.json', 'utf8'));
+const coin_list = JSON.parse(fs.readFileSync('./coin_list.json', 'utf8'));
 
 function date_to_timestamp(my_date) {
     my_date = my_date.split("-");
@@ -136,7 +136,7 @@ async function get_multi_ohlcv(exchange, pair_list, tf_list, start_date, exchang
 let exchange = new ccxt.binance({ enableRateLimit: true })
 
 // --- Edit coin list here ---
-pair_list = ["BTC/USDT", "ETH/USDT", 'ADA/USDT', 'XRP/USDT', 'BNB/USDT', 'LINK/USDT', 'LTC/USDT', "DOGE/USDT", "SOL/USDT", "AVAX/USDT", "DOT/USDT", "LUNA/USDT", "MATIC/USDT", "NEAR/USDT", "EGLD/USDT", "XTZ/USDT", "AAVE/USDT", "UNI/USDT", "FTM/USDT", "BCH/USDT"]
+pair_list = ["BTC/USDT", "ETH/USDT", 'ADA/USDT', 'XRP/USDT', 'BNB/USDT', 'LINK/USDT', 'LTC/USDT', "DOGE/USDT", "SOL/USDT", "AVAX/USDT", "DOT/USDT", "LUNA/USDT", "MATIC/USDT", "NEAR/USDT", "EGLD/USDT", "XTZ/USDT", "AAVE/USDT", "UNI/USDT", "FTM/USDT", "BCH/USDT", "ETC/USDT", "EOS/USDT", "FIL/USDT","SAND/USDT", "AXS/USDT", "LRC/USDT"]
 // pair_list = coin_list['ftx_main_list']
 
 // --- Edit timeframe list and start date here ---
